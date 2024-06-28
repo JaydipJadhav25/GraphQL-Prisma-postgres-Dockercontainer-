@@ -18,6 +18,17 @@ model User{
    email   String   @unique
   name    String?
   password String
+  post Post[]
   @@map("users")
+}
+
+model Post{
+  id String @id @default(uuid())
+  user User @relation(fields: [userid] , references: [id])
+  userid Int
+  title String
+  content String
+  createdAt DateTime @default(now())
+  @@map("posts")
 }
 

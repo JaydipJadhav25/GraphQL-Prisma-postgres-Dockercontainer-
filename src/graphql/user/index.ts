@@ -3,4 +3,5 @@ import { mutatsion } from "./mutations";
 import  {typeDefs}  from "./typeDef"
 import { resolvers } from "./resolver";
 
-export const user = { queries, mutatsion , typeDefs, resolvers}
+
+export const user = { queries, mutatsion , typeDefs, resolvers }

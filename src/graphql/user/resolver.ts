@@ -6,17 +6,19 @@ const queries = {
 
     getUser : async( parent :any ,  payload:GetuserPayload) =>{
         console.log(payload);
-     const curruser = await Userservices.getUser(payload);
-      return ` logined user successfullt${curruser.email}`;   
+     const token = await Userservices.getUser(payload);
+      return ` logined user successfullt || ${token}`;   
     // return curruser;     
 
     },
 
+
     getAllUser : async() =>{
         const users = await Userservices.getAllUser();
-        return users
+        return users;
 
     }
+    
 
 
 }
