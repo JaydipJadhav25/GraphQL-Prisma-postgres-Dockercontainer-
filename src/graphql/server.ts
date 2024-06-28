@@ -1,17 +1,32 @@
 import { ApolloServer  } from '@apollo/server';
+import { user } from './user/index';
+
 
 async function creategraphqlserver(){
 
     const server = new ApolloServer({
         typeDefs:`
-        type Query{
-        hello:String
-        }
+        
+         ${user.typeDefs}
+
+       type Query{
+        ${user.queries}
+       }
+
+       type Mutation { 
+               
+            ${user.mutatsion}
+       }
         `,
+
         resolvers: {
             Query :{
-                hello : () => `hello from graphQl server`
+                ...user.resolvers.queries
+            },
+            Mutation :{
+                ...user.resolvers.mutatsion
             }
+            
         },
     });
 

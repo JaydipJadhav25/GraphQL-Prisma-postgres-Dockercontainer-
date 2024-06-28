@@ -22,7 +22,7 @@ app.get("/" , (req, res) =>{
 const server = await creategraphqlserver();
 app.use("/graphql" , expressMiddleware(server));
 
-app.listen(3000, () => console.log("🚀  Server ready at: 3000"))
+app.listen(8000, () => console.log("🚀  Server ready at: 8000"))
 
 }
 
